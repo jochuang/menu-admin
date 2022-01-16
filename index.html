@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <!-- jQuery CDN (Content Delivery Network) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src = "lodash.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+    <!-- Personal script JavaScript file -->
+    <!-- <script src = "data.js"></script> -->
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- <script src="https://requirejs.org/docs/release/2.3.6/comments/require.js"></script> -->
+
+    <style>
+        .collapsible {
+          background-color: #777;
+          color: white;
+          cursor: pointer;
+          padding: 18px;
+          width: 100%;
+          border: none;
+          text-align: left;
+          outline: none;
+          font-size: 15px;
+        }
+        
+        .active, .collapsible:hover {
+          background-color: #555;
+        }
+        
+        .collapsible:after {
+          content: '\002B';
+          color: white;
+          font-weight: bold;
+          float: right;
+          margin-left: 5px;
+        }
+        
+        .active:after {
+          content: "\2212";
+        }
+        
+        .content {
+          padding: 0 18px;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.2s ease-out;
+          background-color: #f1f1f1;
+        }
+
+        .divSubCan {
+            display: inline;
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+
+<body>
+
+<!-- <script type="module" src="bootstable.js"></script> -->
+<script src="bootstable.js"></script>
+<script src="identifier.js"></script>
+
+<script>
+function load(menu, newMenu, reviewChanges) {
+    const body = document.body
+    var menuDiv = document.createElement("div");
+    menuDiv.className = "div-menu";
+    body.appendChild(menuDiv);
+
+    // generate random row id
+    var random_id = function  () 
+	{
+		var id_num = Math.random().toString(9).substr(2,3); // randomly generate a 3 digit numerical string
+		var id_str = Math.random().toString(36).substr(2);  // randomly generate an 11 digit alpha-numerical string
+		return id_num + id_str;
+	}
+
+    // create for loop for dynamic population of menu headers
+    const menuCats = Object.keys(menu) // retrieves all (9) menu categories: ["Appetizers", "From The Pit", "Meats", "Seafood", "Sides", "Salads", "Desserts", "Drinks", "Lunch Specials"]
+    const menuItems = Object.values(menu) // retrieves an array of (9) menu category objects containing food items in each category
+    
+    for (var i=0; i < menuCats.length; i++) {
+        var newBlock = `
+        <button class="collapsible" cat_name='cat${i}''>${menuCats[i]}</button>
+        <div class="content" id=${i}></div>
+        `
+        menuDiv.innerHTML += newBlock;
+ 
+        // create table
+        var table = document.createElement('table'); // table
+        table.id = 'table'+ i
+
+        // create table head
+        const headerList = ["Name", "Subcategory", "Price", "Description"];
+        var thead = document.createElement('thead'); // table header
+        var tr = document.createElement('tr');       // header row
+        
+        // for loop to generate table header
+        for(var j=0; j<headerList.length; j++){
+            var header = `<th>${headerList[j]}</th>`
+            tr.innerHTML += header              // append th object to tr
+        };
+        thead.appendChild(tr);                  // append tr object to thead
+        table.appendChild(thead);
+       
+        // create table body
+        var tableData = menuItems[i];
+        var tbody = document.createElement('tbody'); // table body
+        // for loop to generate table body (via template literals)
+        for (var k=0; k < tableData.length; k++){
+            // var food_id = random_id();
+            tableData[k].Id = String(i)+String(k); // add food_id to each food item (same food item name will have the same id)
+
+            for (var m=0; m < Object.keys(tableData[k].Price).length; m++){
+                // Object.keys(tableData[k].Price).Id = i+""+k+""+m;
+
+                var row = `<tr food_id = ${i}${k} subcat_id = ${i}${k}${m}>
+                            <td>${tableData[k].Name}</td>
+                            <td>${Object.keys(tableData[k].Price)[m]}</td>
+                            <td>${Object.values(tableData[k].Price)[m]}</td>
+                            <td>${tableData[k].Description}</td>
+                        </tr>`
+                            // <td>${tableData[k].Subcategory}</td>
+                            // <td>${tableData[k].Price}</td>
+                tbody.innerHTML += row
+            }
+        };
+        table.appendChild(tbody);
+        document.getElementById(i).appendChild(table);
+
+        // create "add new item" button
+        var addNewItem = document.createElement('button');
+        addNewItem.className = "btn btn-info";
+        addNewItem.id = "add"+i;
+        addNewItem.innerHTML += `<span class="glyphicon glyphicon-plus-sign"></span>&ensp;Add New Item`;
+        document.getElementById(i).appendChild(addNewItem)
+    }
+
+    // ===== FEATURE: make table editable =====
+    for (let i=0; i < menuCats.length; i++) {
+        $('#table'+i).SetEditable({
+            menu: menu,
+            newMenu: newMenu,
+            reviewChanges: reviewChanges,
+            columnsEd: "2" //set column 2 to be editable column
+        });
+        $('#add'+i).click(function() {
+        rowAddNewAndEdit('table'+i,["name","subcategory","price","description"]);
+        });
+    }
+
+    // ===== FEATURE: animated collapsible script =====
+    var coll = document.getElementsByClassName("collapsible");
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+        content.style.maxHeight = null;
+        } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
+    }
+
+    // ===== FEATURE: make banner responsive to adding a new row
+    var btns = document.getElementsByClassName("btn btn-info");
+    var divs = document.getElementsByClassName("content")
+    for (let x=0; x < btns.length; x++){
+        btns[x].addEventListener('click', ()=> {
+            divs[x].style.maxHeight = divs[x].scrollHeight + "px"
+        })
+    }
+    
+    // ===== FEATURE: record a change and persist change in a data structure
+    // var newMenu = _.cloneDeep(menu); // make a copy of menu object
+    var priceIndex = {}
+
+    // "accept" button functionality (display changes to review section)
+    var acepBtns = document.querySelectorAll('#bAcep')
+    for (let y=0; y < acepBtns.length; y++){
+        acepBtns[y].addEventListener('click', function(){
+        })
+    }
+
+    // "delete" button functionality
+    var delBtns = document.querySelectorAll('#bElim')
+    for (let y=0; y < delBtns.length; y++){
+        delBtns[y].addEventListener('click', function(){
+        })
+    }
+   
+    // Add review changes section to body
+    var divReview = document.createElement("div");
+    divReview.className = "div-review";
+    body.appendChild(divReview);
+
+    // Create "review menu changes" header
+    var h = document.createElement("H2");
+    h.id = "header-review-changes"
+    divReview.appendChild(h);
+
+    // Create summary table to show menu changes
+    var summaryTable = document.createElement("table");
+    summaryTable.className= "table-summary";
+    divReview.appendChild(summaryTable);
+
+    // Create summary table head and summary table body
+    var summaryTableHead = document.createElement("thead");
+    summaryTableHead.id="summary-table-head"
+    summaryTable.appendChild(summaryTableHead);
+
+    var summaryTableBody = document.createElement("tbody");
+    summaryTableBody.id="summary-table-body"
+    summaryTable.appendChild(summaryTableBody);
+    
+    // Add submit-cancel section to body
+    var divSubCan = document.createElement("div");
+    divSubCan.className = "div-sub-can";
+    body.appendChild(divSubCan);
+}
+</script>
+
+<script>
+function require(){
+    return;
+}
+</script>
+
+<script type="module"> // Automate banner generation and table generation
+import {menu} from "./menu.js"
+var newMenu = _.cloneDeep(menu); // make a copy of menu object
+let reviewChanges = {show:false};   // create a reviewChanges flag. 
+// when no changess are recorded yet, show = false, and reviewChanges section will be hidden.
+// when a change is recorded, show = true, and reviewChanges section will show.
+load(menu, newMenu, reviewChanges)
+</script>
+
+</body>
+</html>
