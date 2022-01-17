@@ -1,4 +1,4 @@
-# BoaVista Admin
+# Menu Admin
 <a href="https://menuadmin-demo.s3.amazonaws.com/index.html">Menu Admin</a> is a web application that allows for modification, addition, and deletion of menu items for a separate restaurant application. Menu Admin provides a front-end UI for restaurant owners to easily manage menu changes. The application deploys changes to a restaurant menu through an AWS event driven architecture. This serverless architecture allows two applications to integrate through a deployment pipeline, which can be replicated for different use cases.
 
 ### Table of Contents
