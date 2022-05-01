@@ -4,7 +4,7 @@ export var menu = {
         "Name": "Garlic Shrimp",
         "Price":
         {
-            "": "$12.00"
+            "": "$13.00"
         },
         "Description": ""
     },
@@ -12,7 +12,7 @@ export var menu = {
         "Name": "Garlic Bread",
         "Price":
         {
-            "": "$4.00"
+            "": "$5.00"
         },
         "Description": ""
     },
@@ -20,8 +20,8 @@ export var menu = {
         "Name": "Chicken Fingers",
         "Price":
         {
-            "": "$9.00",
-            "w/ Fries": "$10.00"
+            "": "$10.00",
+            "w/ Fries": "$11.00"
         },
         "Description": ""
     },
@@ -37,15 +37,24 @@ export var menu = {
         "Name": "Buffalo Wings (10)",
         "Price":
         {
-            "": "$12.00"
+            "": "$14.00"
         },
         "Description": "Classic, honey BBQ, Garlic BBQ or Atomic"
+    },
+    {
+        "Name": "Empanadas",
+        "Price":
+        {
+            "": "$8.00",
+            "w/ Fries": "$9.00"
+        },
+        "Description": "Chicken or Chourizo"
     },
     {
         "Name": "Soup of the day (16oz)",
         "Price":
         {
-            "": "$4.00"
+            "": "$5.00"
         },
         "Description": ""
     }],
@@ -54,8 +63,8 @@ export var menu = {
         "Name": "Chicken",
         "Price":
         {
-            "Whole": "$18.00",
-            "Half": "$9.00"
+            "Whole": "$20.00",
+            "Half": "$11.00"
         },
         "Description": "Barbequed chicken with a side of fries, rice and garnishes"
     },
@@ -63,8 +72,8 @@ export var menu = {
         "Name": "Pork Ribs",
         "Price":
         {
-            "Whole": "$25.00",
-            "Half": "$13.00"
+            "Whole": "$27.00",
+            "Half": "$15.00"
         },
         "Description": "Barbequed ribs with a side of fries, rice and garnishes"
     },
@@ -72,8 +81,8 @@ export var menu = {
         "Name": "Combo",
         "Price":
         {
-            "Reg": "$24.00",
-            "BeefRib*": "$28.00"
+            "Reg": "$26.00",
+            "BeefRib*": "$31.00"
         },
         "Description": "* Substitute pork ribs for beef ribs for an additional $4.00. Barbequed chicken and ribs with a side of fries, rice and garnishes."
     }],
@@ -82,8 +91,8 @@ export var menu = {
         "Name": "Picanha on Flat Iron Grill",
         "Price":
         {
-            "Whole": "$27.00",
-            "Half": "$14.00"
+            "Whole": "$33.00",
+            "Half": "$18.00"
         },
         "Description": ""
     },
@@ -91,8 +100,8 @@ export var menu = {
         "Name": "Beef Ribs",
         "Price":
         {
-            "Whole": "$30.00",
-            "Half": "$15.00"
+            "Whole": "$35.00",
+            "Half": "$19.00"
         },
         "Description": ""
     },
@@ -100,7 +109,7 @@ export var menu = {
         "Name": "Steak And Eggs",
         "Price":
         {
-            "Whole": "$19.00",
+            "Whole": "$20.00",
             "Half": "$11.00"
         },
         "Description": ""
@@ -109,7 +118,7 @@ export var menu = {
         "Name": "Boavista Trio",
         "Price":
         {
-            "": "$42.00"
+            "": "$46.00"
         },
         "Description": ""
     },
@@ -133,22 +142,13 @@ export var menu = {
         "Name": "Sealand Steak",
         "Price":
         {
-            "Fries": "$23.00",
-            "": "$27.00*"
+            "Fries": "$26.00",
+            "": "$30.00*"
         },
         "Description": "*Substitute fries for Garlic Brocolli"
     },
     {
         "Name": "Pork Cubes",
-        "Price":
-        {
-            " ": "$18.00",
-            "": "$22.00*"
-        },
-        "Description": "* + $4.00 to add shrimp"
-    },
-    {
-        "Name": "Chicken Cubes",
         "Price":
         {
             " ": "$19.00",
@@ -157,10 +157,19 @@ export var menu = {
         "Description": "* + $4.00 to add shrimp"
     },
     {
+        "Name": "Chicken Cubes",
+        "Price":
+        {
+            " ": "$20.00",
+            "": "$24.00*"
+        },
+        "Description": "* + $4.00 to add shrimp"
+    },
+    {
         "Name": "Chicken Breast",
         "Price":
         {
-            "": "$13.00"
+            "": "$14.00"
         },
         "Description": ""
     },
@@ -168,7 +177,7 @@ export var menu = {
         "Name": "Nick's Spicy Fingers",
         "Price":
         {
-            "": "$10.00"
+            "": "$11.00"
         },
         "Description": "Comes with rice, fries and beans"
     }],
@@ -177,7 +186,7 @@ export var menu = {
         "Name": "Seafood Rice",
         "Price":
         {
-            "": "$22.00"
+            "": "$23.00"
         },
         "Description": ""
     },
@@ -185,7 +194,7 @@ export var menu = {
         "Name": "Barbeque Shrimp",
         "Price":
         {
-            "": "$19.00"
+            "": "$20.00"
         },
         "Description": "9 Tiger shrimps on mustard/wine sauce"
     },
@@ -193,7 +202,7 @@ export var menu = {
         "Name": "Garlic Shrimp",
         "Price":
         {
-            "": "$17.00"
+            "": "$18.00"
         },
         "Description": ""
     },
@@ -201,7 +210,7 @@ export var menu = {
         "Name": "Shrimp on Rice",
         "Price":
         {
-            "": "$19.00"
+            "": "$20.00"
         },
         "Description": ""
     },
@@ -209,7 +218,7 @@ export var menu = {
         "Name": "Bacalhau a Bras",
         "Price":
         {
-            "": "$18.00"
+            "": "$19.00"
         },
         "Description": "Shredded cod fish cooked on olive oil with eggs, potatoes and onions"
     },
@@ -217,7 +226,7 @@ export var menu = {
         "Name": "Fish Fillet",
         "Price":
         {
-            "": "$8.00"
+            "": "$10.00"
         },
         "Description": ""
     },
@@ -225,7 +234,7 @@ export var menu = {
         "Name": "Shrimp-Ka-Bobs",
         "Price":
         {
-            "": "$14.00"
+            "": "$15.00"
         },
         "Description": ""
     },
@@ -233,7 +242,7 @@ export var menu = {
         "Name": "Pork w/ Clams",
         "Price":
         {
-            "": "$15.00"
+            "": "$16.00"
         },
         "Description": ""
     },
@@ -241,7 +250,7 @@ export var menu = {
         "Name": "Grilled Organic Salmon",
         "Price":
         {
-            "": "$21.00"
+            "": "$23.00"
         },
         "Description": "Gluten Free. Choose 2 sides: rice, fries, steamed vegetables or boiled potatoes"
     },
@@ -249,7 +258,7 @@ export var menu = {
         "Name": "Salmon over salad",
         "Price":
         {
-            "": "$14.00"
+            "": "$16.00"
         },
         "Description": ""
     }],
@@ -258,7 +267,7 @@ export var menu = {
         "Name": "Rice",
         "Price":
         {
-            "": "$3.00"
+            "": "$4.00"
         },
         "Description": ""
     },
@@ -266,7 +275,7 @@ export var menu = {
         "Name": "Hand cut home fries",
         "Price":
         {
-            "": "$4.00"
+            "": "$5.00"
         },
         "Description": ""
     },
@@ -274,8 +283,8 @@ export var menu = {
         "Name": "Steamed Vegetables",
         "Price":
         {
-            "Large": "$6.00",
-            "Small": "$4.00"
+            "Large": "$7.00",
+            "Small": "$5.00"
         },
         "Description": ""
     },
@@ -283,8 +292,8 @@ export var menu = {
         "Name": "Pickles",
         "Price":
         {
-            "Large": "$5.00",
-            "Small": "$3.00"
+            "Large": "$7.00",
+            "Small": "$5.00"
         },
         "Description": ""
     },
@@ -301,7 +310,7 @@ export var menu = {
         "Name": "Garlic Broccoli",
         "Price":
         {
-            "": "$6.00"
+            "": "$7.00"
         },
         "Description": ""
     }],
@@ -310,8 +319,8 @@ export var menu = {
         "Name": "House Salad",
         "Price":
         {
-            "Large": "$6.00",
-            "Small": "$4.00"
+            "Large": "$7.00",
+            "Small": "$5.00"
         },
         "Description": "Add avocado for $1.00"
     },
@@ -319,8 +328,8 @@ export var menu = {
         "Name": "Potato Salad",
         "Price":
         {
-            "Large": "$7.00",
-            "Small": "$5.00"
+            "Large": "$8.00",
+            "Small": "$6.00"
         },
         "Description": ""
     }],
@@ -328,8 +337,8 @@ export var menu = {
     {
         "Price":
         {
-            "$4.00": ["Tiramisu", "Coconut Flan", "Passion Fruit Mousse"],
-            "$5.00": ["Tres Leches Cake, Chocolate Cake"]
+            "$5.00": ["Tiramisu", "Coconut Flan", "Passion Fruit Mousse"],
+            "$6.00": ["Tres Leches Cake, Chocolate Cake"]
         }
     }],
     "Drinks": [
@@ -337,7 +346,7 @@ export var menu = {
         "Name": "Soda (can)",
         "Price":
         {
-            "": "$1.50"
+            "": "$2.00"
         },
         "Description": "Coke, Diet Coke, Sprite"
     },
@@ -345,7 +354,7 @@ export var menu = {
         "Name": "Snapple",
         "Price":
         {
-            "": "$2.00"
+            "": "$2.50"
         },
         "Description": "Peach, Lemon, Kiwi Strawberry, Mango Madness"
     },
@@ -353,7 +362,7 @@ export var menu = {
         "Name": "Guarana",
         "Price":
         {
-            "": "$1.75"
+            "": "$2.00"
         },
         "Description": "Brazilian soda"
     },
@@ -361,7 +370,7 @@ export var menu = {
         "Name": "Soda (20oz)",
         "Price":
         {
-            "": "$2.00"
+            "": "$2.50"
         },
         "Description": ""
     },
@@ -370,6 +379,14 @@ export var menu = {
         "Price":
         {
             "": "$1.00"
+        },
+        "Description": ""
+    },
+    {
+        "Name": "Sparkling Water",
+        "Price":
+        {
+            "": "$2.50"
         },
         "Description": ""
     },
@@ -385,7 +402,7 @@ export var menu = {
         "Name": "2 Lts",
         "Price":
         {
-            "Take out ": "$3.50"
+            "Take out ": "$4.00"
         },
         "Description": ""
     },
