@@ -6,11 +6,9 @@ function identifier(butAttr,actionFlag,menu,newMenu,reviewChanges){
     let addNewFlag="addNew";
     let newSource;
     let newSourceIndex;
-    console.log(newMenu)
     
     newMenu[butAttr.cat].forEach(function(element, index) {       //change comparison to original data structure
-        console.log(element.Name)
-        console.log(butAttr.tdList[0].textContent)
+
         if (element.Name === butAttr.tdList[0].textContent){
             Object.entries(element.Price).forEach(function(priceOption){
                 if (priceOption[0] === butAttr.tdList[1].textContent && butAttr.new === 'true'){
@@ -22,7 +20,6 @@ function identifier(butAttr,actionFlag,menu,newMenu,reviewChanges){
             newSource = element
             newSourceIndex = index
             matchFlag=true;
-            console.log("in new menu")
         }
     })
 
@@ -43,26 +40,20 @@ function identifier(butAttr,actionFlag,menu,newMenu,reviewChanges){
 
     // Select correct subcategory (given food item with multiple subcategories)
     Object.entries(newSource.Price).forEach(function (priceOption, index){  // iterate through price map; each priceOption is a [Subcategory, Price] key-value pair
-        console.log(butAttr.tdList[1].textContent)
-        console.log(priceOption[0])
-        console.log("In loop")
-        
+ 
         if (butAttr.tdList[1].textContent === priceOption[0]){          // compare (subcategory of display table) to (subcategory of new menu item)
             let newPrice = priceOption[1]                               // price index denotes the index of the price map of the menu object
 
             switch (actionFlag) {
                 
                 case "accept":      // Check if edit values changed. If changed, call saveChanges function.
-                    console.log("in accept")
-
                     if (newItemFlag === false) {
 
                     // find original menu price and set old price
                     // Select correct food item (by comparing food_id) from the menu object
                         var oldPrice;
                         menu[butAttr.cat].forEach(function(element, index) {       //change comparison to original data structure
-                            if (element.Id === butAttr.id){                                
-                                console.log("in original menu")
+                            if (element.Id === butAttr.id){
                                 Object.entries(element.Price).forEach(function (priceOption, index){
                                     if (butAttr.tdList[1].textContent === priceOption[0]){
                                         oldPrice = priceOption[1]
@@ -84,12 +75,10 @@ function identifier(butAttr,actionFlag,menu,newMenu,reviewChanges){
                     break;
 
                 case "delete":
-                    console.log("in delete")
                     deleteItem(newSourceIndex,butAttr,newItemFlag,menu,newMenu,reviewChanges)
                     break;
                     
                 default:
-                    console.log("Default. No cases met in identifier.")
             }
         }
     })
@@ -97,18 +86,13 @@ function identifier(butAttr,actionFlag,menu,newMenu,reviewChanges){
 
 function deleteItem(newSourceIndex,butAttr,newItemFlag,menu,newMenu,reviewChanges){
     alert("About to delete: "+ butAttr.tdList[0].textContent +" " + butAttr.tdList[1].textContent)
-    console.log(reviewChanges)
 
     // find out if food item has more than one subcategory
     if (Object.keys(newMenu[butAttr.cat][newSourceIndex].Price).length > 1){                    // If more than one, delete subcategory-price key-value pair. 
         delete newMenu[butAttr.cat][newSourceIndex].Price[butAttr.tdList[1].textContent]        // delete a key-value pair: delete object["key"]
                                                                                                 // subcategory = butAttr.tdList[1].textContent or Object.keys(newMenu[category][newSourceIndex].Price)[priceIndex]
-        console.log(newMenu)
-
     } else {                                                // If just one, delete whole food item
         newMenu[butAttr.cat].splice(newSourceIndex, 1)      // changes the contents of an array by removing or replacing existing elements and/or adding new elements: splice(start, deleteCount, item1)
-        
-        console.log(newMenu)
     }
 
     if (reviewChanges.show === false) {
@@ -140,8 +124,6 @@ function deleteItem(newSourceIndex,butAttr,newItemFlag,menu,newMenu,reviewChange
                             <td>${butAttr.tdList[3].textContent}</td>
                             <td><span class = "badge">Deleted</span></td>
                         </tr>`
-        // butAttr.tdList[2].textContent will store old price info because new price will be updated
-
         document.getElementById("summary-table-body").innerHTML += deleteRow
     }
 }
@@ -149,7 +131,6 @@ function deleteItem(newSourceIndex,butAttr,newItemFlag,menu,newMenu,reviewChange
 function saveChanges(newSourceIndex,butAttr,oldPrice,menu,newMenu,reviewChanges){
     
     alert("New data is: "+ butAttr.tdList[2].textContent + ". Source data is: "+ oldPrice + ".\nData structure updated with new changes!")
-    console.log(reviewChanges)
 
     newMenu[butAttr.cat][newSourceIndex].Price[butAttr.tdList[1].textContent] = butAttr.tdList[2].textContent      // set new price to the copy of the data structure (newMenu). Source[0] is the subcateogry of original data structure
 
@@ -222,10 +203,6 @@ function resetMenu(menu,newMenu,reviewChanges){
 
 function submitMenu(menu,newMenu,reviewChanges){
     alert("Ready to Submit")
-    // var tempFile = "menu_temp.js"
-    // tempFile.open("w");  //open file with write access
-    // tempFile.writeIn(newMenu)
-    // tempFile.close()
 
     fetch('https://menuadmin-demo.s3.amazonaws.com/menu.js', {
         method: 'PUT',
@@ -240,12 +217,9 @@ function submitMenu(menu,newMenu,reviewChanges){
     })
     .then(() => {
         alert("Submit successful");
-        console.log(reviewChanges)
         window.location.href = window.location.href
-        // resetMenu(menu,newMenu,reviewChanges);
     })
     .catch((err) => {
-        console.log(err)
         alert("failed")})
 
 }
@@ -253,7 +227,6 @@ function submitMenu(menu,newMenu,reviewChanges){
 function addNewMenuItem(newSourceIndex,butAttr,addNewFlag,menu,newMenu,reviewChanges){
 
     // same food item; adding a subcategory in price option
-    console.log(addNewFlag)
     if (addNewFlag === "addNew"){
         let newMenuItem = {Name: butAttr.tdList[0].textContent,
             Price: {[butAttr.tdList[1].textContent]:butAttr.tdList[2].textContent},
@@ -265,13 +238,11 @@ function addNewMenuItem(newSourceIndex,butAttr,addNewFlag,menu,newMenu,reviewCha
         newMenu[butAttr.cat][newSourceIndex].Price[butAttr.tdList[1].textContent] = butAttr.tdList[2].textContent        // adding new subcategories to newMenu
     }
 
-    console.log(newMenu[butAttr.cat])
 
     if (reviewChanges.show === false) {
         displayReviewHeader(menu,newMenu,reviewChanges)
         reviewChanges.show = true
     };
-    console.log(reviewChanges)
     let newRow = `<tr id = ${butAttr.subcat_id}>
                         <td>${butAttr.tdList[0].textContent}</td>
                         <td>${butAttr.cat}</td>
