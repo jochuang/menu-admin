@@ -204,14 +204,14 @@ function resetMenu(menu,newMenu,reviewChanges){
 function submitMenu(menu,newMenu,reviewChanges){
     alert("Ready to Submit")
 
-    fetch('https://menuadmin-demo.s3.amazonaws.com/menu.js', {
+    fetch('https://menua-dmin-demo.s3.amazonaws.com/menu.js', {
         method: 'PUT',
         headers: {
             // 'Accept': 'application/json, text/plain, */*',
             'Content-Type': 'application/javascript'
             // 's3:x-amz-acl': 'bucket-owner-full-control'
         },
-        body: "export var menu = "+JSON.stringify(newMenu)
+        body: "export var menu = " + JSON.stringify(newMenu)
         // body: JSON.stringify(newMenu)
 
     })
