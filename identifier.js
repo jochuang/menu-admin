@@ -204,7 +204,7 @@ function resetMenu(menu,newMenu,reviewChanges){
 function submitMenu(menu,newMenu,reviewChanges){
     alert("Ready to Submit")
 
-    fetch('https://menua-dmin-demo.s3.amazonaws.com/menu.js', {
+    fetch('https://menu-admin-demo.s3.amazonaws.com/menu.js', {
         method: 'PUT',
         headers: {
             // 'Accept': 'application/json, text/plain, */*',
