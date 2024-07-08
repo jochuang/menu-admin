@@ -1,5 +1,5 @@
 # Menu Admin
-<a href="https://menuadmin-demo.s3.amazonaws.com/index.html">Menu Admin</a> is a web application that allows for modification, addition, and deletion of menu items for a separate restaurant application. Menu Admin provides a front-end UI for restaurant owners to easily manage menu changes. The application deploys changes to a restaurant menu through an AWS event driven architecture. This serverless architecture allows two applications to integrate through a deployment pipeline, which can be replicated for different use cases.
+<a href="https://menu-admin-demo.s3.amazonaws.com/index.html">Menu Admin</a> is a web application that allows for modification, addition, and deletion of menu items for a separate restaurant application. Menu Admin provides a front-end UI for restaurant owners to easily manage menu changes. The application deploys changes to a restaurant menu through an AWS event driven architecture. This serverless architecture allows two applications to integrate through a deployment pipeline, which can be replicated for different use cases.
 
 ### Table of Contents
    * [How To Use](#how-to-use)
@@ -12,7 +12,7 @@ In this short turtorial, you will be able to make changes on Menu Admin and see 
 Restaurant Menu is a testing environment that is built to mimic the menu page of a restaurant's website.
 Check out <a href="https://restaurant-menu-b0d4c.web.app">Restaurant Menu</a> to see what it looks like before making any changes.
 
-To interact with Menu Admin, check out <a href="https://menuadmin-demo.s3.amazonaws.com/index.html">Menu Admin</a>. There are 3 actions that can be done on Menu Admin:
+To interact with Menu Admin, check out <a href="https://menu-admin-demo.s3.amazonaws.com/index.html">Menu Admin</a>. There are 3 actions that can be done on Menu Admin:
 <ul>
 <li><b>Modification:  </b>
 To edit a menu item, click on <img src="/icons/icon-edit.PNG" width=25> to edit. Once in edit mode, you can modify the menu item price. To confirm changes, click on <img src="/icons/icon-check.PNG" width=25>. To cancel changes, click on <img src="/icons/icon-cancel.PNG" width=25>. The changes will automatically be recorded at the buttom, under "Review Menu Changes" section.</li>
